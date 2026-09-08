@@ -5,6 +5,7 @@ import ExpertiseSection from '@/components/home/ExpertiseSection.vue'
 import SupportMoment from '@/components/home/SupportMoment.vue'
 import ExperiencePreview from '@/components/home/ExperiencePreview.vue'
 import WritingPreview from '@/components/home/WritingPreview.vue'
+import LinkedInSection from '@/components/home/LinkedInSection.vue'
 import CurrentFocus from '@/components/home/CurrentFocus.vue'
 import ContactCTA from '@/components/home/ContactCTA.vue'
 </script>
@@ -50,7 +51,10 @@ import ContactCTA from '@/components/home/ContactCTA.vue'
     <!-- 6. Things I'm Figuring Out / Writing -->
     <WritingPreview />
 
-    <!-- 7. Currently / Current Focus -->
+    <!-- 7. Elsewhere on the Internet / LinkedIn -->
+    <LinkedInSection />
+
+    <!-- 8. Currently / Current Focus -->
     <CurrentFocus />
 
     <!-- 8. Come Say Hi / Contact CTA -->

@@ -13,7 +13,7 @@ export const articles: Article[] = [
   {
     slug: 'why-ai-agents-need-world-state',
     title: 'Why AI Agents Need World State',
-    description: 'Why stateless prompt wrappers fail on multi-step execution and how explicit world state modeling provides reliable ground truth.',
+    description: 'Memory tells an agent what happened. World state tells it what is actually true right now.',
     date: 'Coming soon',
     tags: ['Agentic AI', 'Architecture'],
     status: 'draft',
@@ -37,7 +37,7 @@ The model should reason about *what* to do based on the current state, but the r
   {
     slug: 'planner-vs-harness',
     title: 'Planner vs Harness: Where Should Agent Intelligence Live?',
-    description: 'Examining the crucial architectural boundary between LLM semantic planning and deterministic runtime governance.',
+    description: 'How much should we trust the model, and how much should the surrounding software control?',
     date: 'Coming soon',
     tags: ['AI Systems', 'Agents'],
     status: 'draft',
@@ -61,7 +61,7 @@ Keep the planner focused on intent parsing, task decomposition, and heuristic ev
   {
     slug: 'memory-is-not-world-state',
     title: 'Memory Is Not World State',
-    description: 'Differentiating between episodic context recall and deterministic environmental state tracking in autonomous systems.',
+    description: "Why remembering something and knowing what's currently true are very different problems for autonomous systems.",
     date: 'Coming soon',
     tags: ['Agent Architecture', 'Context'],
     status: 'draft',

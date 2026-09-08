@@ -16,44 +16,44 @@ export const expertiseAreas: ExpertiseItem[] = [
   {
     id: 'ai-systems',
     title: 'AI Systems',
-    description: 'Autonomous agents, agent architecture, planning, reasoning pipelines, tool orchestration, reflection, runtime systems and multi-step execution.',
+    description: 'How models, tools, state and runtime logic work together when the system has to do more than produce an answer.',
     icon: 'Bot',
     tags: ['Autonomous Agents', 'Planning', 'Tool Orchestration', 'Reflection']
   },
   {
-    id: 'retrieval-memory',
-    title: 'Retrieval & Memory',
-    description: 'RAG, embeddings, semantic retrieval, context engineering, working/session/long-term memory, knowledge pipelines and grounding.',
-    icon: 'Brain',
-    tags: ['RAG', 'Vector Search', 'Context Engineering', 'State Memory']
-  },
-  {
     id: 'backend-engineering',
     title: 'Backend Engineering',
-    description: 'Java, Spring Boot, Python, FastAPI, REST APIs, microservices, PostgreSQL, Redis and production backend systems.',
+    description: 'The boring-but-important machinery that keeps everything alive — APIs, services, databases, performance and reliability.',
     icon: 'Server',
     tags: ['Java', 'Spring Boot', 'Python', 'FastAPI', 'PostgreSQL']
   },
   {
+    id: 'retrieval-memory',
+    title: 'Retrieval & Memory',
+    description: 'Helping systems remember the right thing without drowning the model in context.',
+    icon: 'Brain',
+    tags: ['RAG', 'Vector Search', 'Context Engineering', 'State Memory']
+  },
+  {
+    id: 'system-design',
+    title: 'System Design',
+    description: 'State, failures, recovery, reliability and all the things architecture diagrams conveniently ignore.',
+    icon: 'Network',
+    tags: ['Distributed Systems', 'State Machines', 'Resilience', 'API Contracts']
+  },
+  {
     id: 'browser-automation',
     title: 'Browser & Automation',
-    description: 'Playwright, DOM reasoning, SPA automation, browser workflows, capability routing and autonomous web interaction.',
+    description: 'Getting software to interact with real applications where the page rarely behaves exactly like the plan expected.',
     icon: 'Globe',
     tags: ['Playwright', 'DOM Analysis', 'SPA Routing', 'Web Drivers']
   },
   {
     id: 'ai-infrastructure',
     title: 'AI Infrastructure',
-    description: 'Docker, CI/CD, cloud deployment, model integration, evaluation, inference workflows and observability.',
+    description: 'Model integration, deployment, observability, CI/CD and the engineering around getting AI systems to run reliably.',
     icon: 'Cpu',
     tags: ['Docker', 'Inference', 'CI/CD', 'Model Ops']
-  },
-  {
-    id: 'system-design',
-    title: 'System Design',
-    description: 'Distributed systems, reliability, state management, recovery, architecture contracts, performance and scalable service design.',
-    icon: 'Network',
-    tags: ['Distributed Systems', 'State Machines', 'Resilience', 'API Contracts']
   }
 ]
 

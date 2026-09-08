@@ -11,11 +11,11 @@ import ContactCTA from '@/components/home/ContactCTA.vue'
       <div class="font-mono text-xs uppercase tracking-wider text-accent-primary font-medium mb-3">
         ESSAYS & TECHNICAL NOTES
       </div>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-content-main mb-6">
-        Writing
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-content-main mb-6">
+        Things I'm Figuring Out
       </h1>
       <p class="text-xl sm:text-2xl text-content-secondary max-w-3xl leading-relaxed">
-        Thoughts on AI systems, agents, backend engineering and architecture.
+        I write about the systems I build, the ideas I'm exploring, and the things I usually understand properly only after breaking them once.
       </p>
     </header>
 

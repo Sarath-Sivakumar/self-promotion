@@ -14,28 +14,15 @@ export const experiences: ExperienceItem[] = [
     id: 'tcs-system-engineer',
     company: 'Tata Consultancy Services',
     role: 'System Engineer',
-    period: 'Aug 2025 – Present',
+    period: 'Apr 2024 – Present',
     location: 'Chennai, India',
     isCurrent: true,
-    summary: 'Building LLM-powered agent and retrieval systems while leading backend development across Java and Spring Boot microservices.',
+    summary: 'Working across AI systems and backend engineering — building LLM-powered agent and retrieval systems alongside Java/Spring Boot services, enterprise APIs and performance-critical backend systems.',
     highlights: [
-      'Architecting and implementing agentic retrieval pipelines and AI systems integration',
-      'Designing robust backend microservices, API contracts, and high-performance server architectures',
-      'Overseeing service resilience, state management, and reliable distributed workflows'
-    ]
-  },
-  {
-    id: 'tcs-software-engineer',
-    company: 'Tata Consultancy Services',
-    role: 'Software Engineer',
-    period: 'Apr 2024 – Aug 2025',
-    location: 'Chennai, India',
-    isCurrent: false,
-    summary: 'Built and optimized full-stack and backend systems using Spring Boot, React, PostgreSQL, Redis and enterprise APIs.',
-    highlights: [
-      'Developed core backend services and microservice endpoints with Spring Boot and PostgreSQL',
-      'Implemented caching strategies using Redis for latency reduction and throughput optimization',
-      'Engineered clean RESTful API contracts and full-stack integration workflows'
+      'Architecting and implementing LLM-powered agentic retrieval pipelines and AI systems integration',
+      'Designing and developing core backend microservices, REST APIs, and high-performance server architectures with Java and Spring Boot',
+      'Implementing caching strategies using Redis and relational data modeling with PostgreSQL for latency reduction and throughput optimization',
+      'Overseeing service resilience, state management, Docker containerization, CI/CD pipelines, and reliable distributed workflows'
     ]
   }
 ]

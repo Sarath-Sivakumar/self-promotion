@@ -9,8 +9,8 @@ import AppButton from '@/components/common/AppButton.vue'
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
       <SectionHeading
         eyebrow="CAREER"
-        title="Experience"
-        description="Engineering enterprise microservices and intelligent retrieval pipelines at scale."
+        title="Where I Do This Professionally"
+        description="Working across AI systems and backend engineering — building LLM-powered agent and retrieval systems alongside Java/Spring Boot services, enterprise APIs and performance-critical backend systems."
       />
 
       <div class="hidden md:block pb-14">

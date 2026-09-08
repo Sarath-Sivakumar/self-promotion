@@ -4,7 +4,12 @@ export interface SocialLink {
   label?: string
   icon?: string
   enabled: boolean
+  external?: boolean
 }
+
+export const BUY_ME_A_COFFEE_URL = 'https://buymeacoffee.com/sarathsivakumar'
+export const GMAIL_COMPOSE_URL = 'https://mail.google.com/mail/?view=cm&fs=1&to=sarathputhenvila@gmail.com'
+export const EMAIL_ADDRESS = 'sarathputhenvila@gmail.com'
 
 export const socials: SocialLink[] = [
   {
@@ -12,21 +17,25 @@ export const socials: SocialLink[] = [
     url: 'https://github.com/Sarath-Sivakumar',
     label: 'github.com/Sarath-Sivakumar',
     icon: 'Github',
-    enabled: true
+    enabled: true,
+    external: true
   },
   {
     name: 'LinkedIn',
     url: 'https://linkedin.com/in/sarath-sivakumar',
     label: 'linkedin.com/in/sarath-sivakumar',
     icon: 'Linkedin',
-    enabled: true
+    enabled: true,
+    external: true
   },
   {
     name: 'Email',
     url: 'mailto:sarathputhenvila@gmail.com',
     label: 'sarathputhenvila@gmail.com',
     icon: 'Mail',
-    enabled: true
+    enabled: true,
+    external: false
   }
 ]
+
 

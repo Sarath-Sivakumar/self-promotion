@@ -14,8 +14,8 @@ const secondaryProjects = computed(() => projects.filter(p => p.slug !== 'natash
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
       <SectionHeading
         eyebrow="SELECTED WORK"
-        title="Selected Systems"
-        description="A selection of AI systems and engineering products I have designed and built."
+        title="Things I'm Building"
+        description="These are the projects taking most of my attention right now — and occasionally most of my sleep."
       />
 
       <div class="hidden md:block pb-14">

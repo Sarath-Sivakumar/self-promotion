@@ -41,8 +41,8 @@ defineProps<{
       {{ project.subtitle }}
     </p>
 
-    <!-- Intro narrative -->
-    <p class="text-base sm:text-lg text-content-secondary leading-relaxed max-w-4xl mb-8">
+    <!-- Core Insight: Why this is interesting / hard -->
+    <p class="text-lg sm:text-xl text-content-main font-medium leading-relaxed max-w-3xl mb-8 border-l-2 border-accent-primary pl-4">
       {{ project.heroIntro }}
     </p>
 

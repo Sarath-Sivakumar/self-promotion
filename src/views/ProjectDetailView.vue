@@ -171,6 +171,121 @@ const nextProject = computed(() => {
       </div>
     </ProjectSection>
 
+    <!-- Specific Section for Echo: Conversational Voice Pipeline Flow (Decorative Architectural Overview) -->
+    <ProjectSection
+      v-if="project.slug === 'echo'"
+      title="Conversational Pipeline Flow"
+      eyebrow="SYSTEM TOPOLOGY"
+      description="The end-to-end streaming architecture connecting multi-channel audio/text webhooks with semantic grounding and low-latency voice synthesis."
+    >
+      <div class="p-6 sm:p-8 rounded-card bg-dark-card border border-border-subtle space-y-6">
+        <!-- Visual pipeline steps -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="p-4 rounded-lg bg-dark-secondary/60 border border-border-subtle flex flex-col justify-between">
+            <div class="flex items-center justify-between text-xs font-mono text-content-muted mb-2">
+              <span class="text-accent-secondary font-bold">01 INGESTION</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-accent-secondary"></span>
+            </div>
+            <div class="text-sm font-bold text-content-main mb-1">Telegram & WhatsApp</div>
+            <div class="text-xs text-content-secondary">Audio voice notes and text webhooks received asynchronously.</div>
+          </div>
+
+          <div class="p-4 rounded-lg bg-dark-secondary/60 border border-border-subtle flex flex-col justify-between">
+            <div class="flex items-center justify-between text-xs font-mono text-content-muted mb-2">
+              <span class="text-accent-secondary font-bold">02 SPEECH TO TEXT</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-accent-secondary"></span>
+            </div>
+            <div class="text-sm font-bold text-content-main mb-1">STT Transcription</div>
+            <div class="text-xs text-content-secondary">Audio chunk parsing and transcription into structured token stream.</div>
+          </div>
+
+          <div class="p-4 rounded-lg bg-dark-secondary/60 border border-border-subtle flex flex-col justify-between">
+            <div class="flex items-center justify-between text-xs font-mono text-content-muted mb-2">
+              <span class="text-accent-secondary font-bold">03 REASONING & RAG</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-accent-secondary"></span>
+            </div>
+            <div class="text-sm font-bold text-content-main mb-1">Dialogue & Knowledge Base</div>
+            <div class="text-xs text-content-secondary">Domain retrieval vector search and contextual intent synthesis.</div>
+          </div>
+
+          <div class="p-4 rounded-lg bg-dark-secondary/60 border border-border-subtle flex flex-col justify-between">
+            <div class="flex items-center justify-between text-xs font-mono text-content-muted mb-2">
+              <span class="text-accent-secondary font-bold">04 SYNTHESIS</span>
+              <span class="w-1.5 h-1.5 rounded-full bg-accent-secondary"></span>
+            </div>
+            <div class="text-sm font-bold text-content-main mb-1">TTS & Dispatch</div>
+            <div class="text-xs text-content-secondary">Low-latency audio streaming generation and external API action dispatch.</div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-border-subtle/60 flex flex-wrap items-center justify-between gap-3 text-xs font-mono text-content-muted">
+          <span>PIPELINE: STREAMING / ASYNC EVENT DRIVEN</span>
+          <span class="text-accent-secondary">TELEPHONY INTEGRATION IN ACTIVE DEVELOPMENT</span>
+        </div>
+      </div>
+    </ProjectSection>
+
+    <!-- Specific Section for Debug Pilot: Diagnostic Workflow -->
+    <ProjectSection
+      v-if="project.slug === 'debug-pilot'"
+      title="Diagnostic Flow Loop"
+      eyebrow="AGENTIC LOOP"
+      description="The structured four-stage evaluation cycle designed to analyze stack traces and synthesize deterministic remediation guidance."
+    >
+      <div class="p-6 sm:p-8 rounded-card bg-dark-card border border-border-subtle space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div class="p-4 rounded-lg bg-dark-secondary/60 border border-border-subtle">
+            <div class="text-xs font-mono text-blue-400 font-bold mb-2">STAGE 1: PLAN</div>
+            <div class="text-sm font-bold text-content-main mb-1">Assess Failure Modality</div>
+            <div class="text-xs text-content-secondary">Parses stack trace headers (e.g. BeanCreationException) and plans diagnostic queries.</div>
+          </div>
+
+          <div class="p-4 rounded-lg bg-dark-secondary/60 border border-border-subtle">
+            <div class="text-xs font-mono text-blue-400 font-bold mb-2">STAGE 2: EXECUTE</div>
+            <div class="text-sm font-bold text-content-main mb-1">Retrieve & Inspect</div>
+            <div class="text-xs text-content-secondary">Queries indexed failure knowledge base and inspects dependency injection graph topology.</div>
+          </div>
+
+          <div class="p-4 rounded-lg bg-dark-secondary/60 border border-border-subtle">
+            <div class="text-xs font-mono text-blue-400 font-bold mb-2">STAGE 3: REFLECT</div>
+            <div class="text-sm font-bold text-content-main mb-1">Critique Hypothesis</div>
+            <div class="text-xs text-content-secondary">Verifies hypothesized cause against framework configuration rules and error constraints.</div>
+          </div>
+
+          <div class="p-4 rounded-lg bg-dark-secondary/60 border border-border-subtle">
+            <div class="text-xs font-mono text-blue-400 font-bold mb-2">STAGE 4: DIAGNOSE</div>
+            <div class="text-sm font-bold text-content-main mb-1">Synthesize & Patch</div>
+            <div class="text-xs text-content-secondary">Generates contextual root-cause explanation and copy-pasteable remediation diff.</div>
+          </div>
+        </div>
+      </div>
+    </ProjectSection>
+
+    <!-- Specific Section for Natasha: WHAT BROKE ALONG THE WAY (Architecture Lessons) -->
+    <ProjectSection
+      v-if="project.lessons && project.lessons.length"
+      title="What Broke Along the Way"
+      eyebrow="ARCHITECTURE LESSONS"
+      description="Real architectural insights and lessons discovered while building autonomous planning, context boundaries, and runtime execution."
+    >
+      <div class="space-y-4">
+        <div
+          v-for="lesson in project.lessons"
+          :key="lesson.number"
+          class="p-6 sm:p-7 rounded-card bg-dark-card border border-border-subtle hover:border-border-hover transition-colors"
+        >
+          <div class="flex items-center gap-3 mb-2 font-mono text-xs text-accent-primary font-bold">
+            <span>LESSON {{ lesson.number }}</span>
+            <span class="w-1 h-1 rounded-full bg-border-subtle"></span>
+            <span class="text-content-main uppercase tracking-wide">{{ lesson.title }}</span>
+          </div>
+          <p class="text-base text-content-secondary leading-relaxed pt-1">
+            {{ lesson.takeaway }}
+          </p>
+        </div>
+      </div>
+    </ProjectSection>
+
     <!-- Specific Section for Debug Pilot: Subsections (Problem, Approach, Retrieval, etc.) -->
     <template v-if="project.sections && project.sections.length">
       <ProjectSection

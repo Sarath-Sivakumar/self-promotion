@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import SocialLinks from '@/components/common/SocialLinks.vue'
+import { Coffee } from 'lucide-vue-next'
+import { BUY_ME_A_COFFEE_URL } from '@/data/socials'
 </script>
 
 <template>
@@ -13,9 +15,20 @@ import SocialLinks from '@/components/common/SocialLinks.vue'
           <span>AI Systems Engineer</span>
         </div>
 
-        <!-- Center / Right: Social Links -->
-        <div>
+        <!-- Center / Right: Social Links & subtle coffee link -->
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-xs font-mono">
           <SocialLinks variant="icons" />
+          <span class="w-1 h-1 rounded-full bg-border-subtle hidden sm:inline-block"></span>
+          <a
+            :href="BUY_ME_A_COFFEE_URL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 text-content-secondary hover:text-[#FFDD00] transition-colors group px-2 py-1 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary"
+            aria-label="Buy me a coffee on BuyMeACoffee.com (opens in new tab)"
+          >
+            <Coffee class="w-3.5 h-3.5 text-[#FFDD00] group-hover:scale-110 transition-transform" />
+            <span>Coffee</span>
+          </a>
         </div>
 
         <!-- Right / Bottom: Subtle technical credit -->

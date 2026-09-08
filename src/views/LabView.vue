@@ -46,13 +46,13 @@ const labCategories = [
     <!-- Header -->
     <header class="pb-12 border-b border-border-subtle mb-12">
       <div class="font-mono text-xs uppercase tracking-wider text-accent-primary font-medium mb-3">
-        RESEARCH & EXPERIMENTS
+        LAB & RESEARCH
       </div>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-content-main mb-6">
-        Lab
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-content-main mb-6">
+        Experiments & Rabbit Holes
       </h1>
       <p class="text-xl sm:text-2xl text-content-secondary max-w-3xl leading-relaxed">
-        Experiments, engineering notes and ideas that are too early or too small to become full project case studies.
+        Not everything deserves to become a product. Some things deserve to be poked, benchmarked, broken and written down.
       </p>
     </header>
 

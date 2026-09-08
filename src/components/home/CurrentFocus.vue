@@ -6,12 +6,12 @@ import { ArrowRight } from 'lucide-vue-next'
 const focusItems = [
   {
     category: 'BUILDING',
-    content: 'Autonomous AI systems and agent infrastructure',
+    content: 'Autonomous AI systems and the infrastructure around them.',
     accent: 'text-accent-primary'
   },
   {
     category: 'LEARNING',
-    content: 'AI systems engineering, model internals and distributed systems',
+    content: 'How models, runtimes and distributed systems behave when things stop being ideal.',
     accent: 'text-accent-secondary'
   },
   {

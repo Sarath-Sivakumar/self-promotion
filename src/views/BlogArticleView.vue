@@ -2,9 +2,10 @@
 import { computed } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import { articles } from '@/data/articles'
+import { BUY_ME_A_COFFEE_URL } from '@/data/socials'
 import TechBadge from '@/components/project/TechBadge.vue'
 import ContactCTA from '@/components/home/ContactCTA.vue'
-import { ArrowLeft, Clock } from 'lucide-vue-next'
+import { ArrowLeft, Clock, Coffee } from 'lucide-vue-next'
 
 const route = useRoute()
 const slug = computed(() => route.params.slug as string)
@@ -84,6 +85,21 @@ const article = computed(() => articles.find(a => a.slug === slug.value))
             </li>
           </ul>
         </div>
+      </div>
+
+      <!-- Optional subtle support line -->
+      <div class="pt-8 mt-10 border-t border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-content-muted">
+        <span>Found this useful?</span>
+        <a
+          :href="BUY_ME_A_COFFEE_URL"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-1.5 text-content-secondary hover:text-[#FFDD00] transition-colors group w-fit"
+          aria-label="Fuel the next experiment with a coffee"
+        >
+          <Coffee class="w-3.5 h-3.5 text-[#FFDD00] group-hover:scale-110 transition-transform" />
+          <span>Fuel the next experiment ↗</span>
+        </a>
       </div>
     </article>
 

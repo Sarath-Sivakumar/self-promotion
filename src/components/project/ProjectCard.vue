@@ -3,7 +3,7 @@ import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import type { Project } from '@/data/projects'
 import TechBadge from './TechBadge.vue'
-import { ArrowUpRight, Github } from 'lucide-vue-next'
+import { ArrowUpRight, Github, Activity, Mic, Wrench } from 'lucide-vue-next'
 
 interface Props {
   project: Project
@@ -16,16 +16,24 @@ const props = withDefaults(defineProps<Props>(), {
   layout: 'default'
 })
 
+const isNatasha = computed(() => props.project.slug === 'natasha')
+const isEcho = computed(() => props.project.slug === 'echo')
+const isDebugPilot = computed(() => props.project.slug === 'debug-pilot')
 const routePath = computed(() => `/projects/${props.project.slug}`)
 </script>
 
 <template>
   <article
-    class="group relative flex flex-col justify-between p-6 sm:p-8 rounded-card bg-dark-card border border-border-subtle hover:border-border-hover hover:-translate-y-1 transition-all duration-300 shadow-card hover:shadow-card-hover overflow-hidden"
+    :class="[
+      'group relative flex flex-col justify-between rounded-card border transition-all duration-300 overflow-hidden',
+      featured || isNatasha
+        ? 'p-8 sm:p-10 bg-gradient-to-b from-[#12141C] to-[#0D0F14] border-accent-primary/25 hover:border-accent-primary/45 shadow-glow/30 hover:shadow-glow/50'
+        : 'p-6 sm:p-8 bg-dark-card border-border-subtle hover:border-border-hover shadow-card hover:shadow-card-hover hover:-translate-y-1'
+    ]"
   >
     <!-- Background typographic accent decoration -->
     <div
-      class="absolute top-0 right-0 -mr-6 -mt-6 font-mono text-7xl sm:text-8xl font-bold opacity-[0.03] group-hover:opacity-[0.06] select-none transition-opacity duration-300 pointer-events-none"
+      class="absolute top-0 right-0 -mr-6 -mt-6 font-mono text-7xl sm:text-8xl font-bold opacity-[0.03] group-hover:opacity-[0.07] select-none transition-opacity duration-300 pointer-events-none"
     >
       {{ project.number }}
     </div>
@@ -41,6 +49,9 @@ const routePath = computed(() => `/projects/${props.project.slug}`)
           <span class="text-xs font-mono text-content-muted">
             {{ project.status }}
           </span>
+          <span v-if="featured || isNatasha" class="hidden sm:inline-block px-2 py-0.5 rounded-full text-[10px] font-mono uppercase bg-accent-muted text-accent-primary border border-accent-primary/30">
+            Flagship System
+          </span>
         </div>
 
         <RouterLink
@@ -54,12 +65,66 @@ const routePath = computed(() => `/projects/${props.project.slug}`)
 
       <!-- Project Name and Subtitle -->
       <div class="mb-4">
-        <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-content-main group-hover:text-white transition-colors mb-1">
-          {{ project.name }}
-        </h3>
+        <div class="flex items-center gap-3 mb-1">
+          <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-content-main group-hover:text-white transition-colors">
+            {{ project.name }}
+          </h3>
+          <span v-if="isEcho" class="p-1 rounded bg-accent-secondary/10 text-accent-secondary">
+            <Mic class="w-4 h-4" />
+          </span>
+          <span v-else-if="isDebugPilot" class="p-1 rounded bg-blue-500/10 text-blue-400">
+            <Wrench class="w-4 h-4" />
+          </span>
+          <span v-else-if="isNatasha" class="p-1 rounded bg-accent-primary/10 text-accent-primary">
+            <Activity class="w-4 h-4" />
+          </span>
+        </div>
         <p class="text-sm font-medium text-accent-primary/90">
           {{ project.subtitle }}
         </p>
+      </div>
+
+      <!-- Subtle Project Motifs for Visual Rhythm -->
+      <!-- Echo Subtle Voice / Audio Visual Motif (Decorative) -->
+      <div
+        v-if="isEcho"
+        class="mb-5 p-3 rounded-lg bg-dark-secondary/70 border border-border-subtle/70 flex items-center justify-between text-xs font-mono text-content-muted"
+        aria-hidden="true"
+      >
+        <div class="flex items-center gap-1.5 text-accent-secondary">
+          <span class="inline-block w-1 h-3 bg-accent-secondary rounded-full"></span>
+          <span class="inline-block w-1 h-5 bg-accent-secondary rounded-full"></span>
+          <span class="inline-block w-1 h-2 bg-accent-secondary rounded-full"></span>
+          <span class="inline-block w-1 h-4 bg-accent-secondary rounded-full"></span>
+          <span class="inline-block w-1 h-2.5 bg-accent-secondary rounded-full"></span>
+        </div>
+        <span class="text-[11px] text-content-secondary font-mono tracking-wider">
+          STT → LLM REASONING → RAG → TTS
+        </span>
+      </div>
+
+      <!-- Debug Pilot Subtle Diagnostic Visual Motif (Decorative) -->
+      <div
+        v-else-if="isDebugPilot"
+        class="mb-5 p-3 rounded-lg bg-dark-secondary/70 border border-border-subtle/70 flex items-center justify-between text-xs font-mono text-content-muted"
+        aria-hidden="true"
+      >
+        <span class="text-[11px] text-rose-400 font-mono font-semibold">
+          FAULT: StackTrace
+        </span>
+        <span class="text-[11px] text-content-secondary font-mono tracking-wider">
+          PLAN → EXECUTE → REFLECT → DIAGNOSE
+        </span>
+      </div>
+
+      <!-- Natasha Subtle Flagship Architecture Motif -->
+      <div
+        v-else-if="isNatasha && featured"
+        class="mb-5 p-3.5 rounded-lg bg-dark-secondary/70 border border-accent-primary/20 flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-content-muted"
+        aria-hidden="true"
+      >
+        <span class="text-accent-primary font-medium">RUNTIME HARNESS</span>
+        <span class="text-content-secondary">GOAL → PLANNING → TOOLS → WORLD STATE → RECOVERY</span>
       </div>
 
       <!-- Description -->
@@ -102,3 +167,4 @@ const routePath = computed(() => `/projects/${props.project.slug}`)
     </div>
   </article>
 </template>
+

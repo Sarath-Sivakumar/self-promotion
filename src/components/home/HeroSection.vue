@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AppButton from '@/components/common/AppButton.vue'
 import SocialLinks from '@/components/common/SocialLinks.vue'
-import sarathPortrait from '@/assets/images/sarath.png'
+import sarathPortrait from '@/assets/images/sarath.webp'
 import { ArrowDown } from 'lucide-vue-next'
 
 const scrollToNext = () => {
@@ -36,22 +36,30 @@ const scrollToNext = () => {
 
         <!-- Primary Statement -->
         <p class="text-lg sm:text-2xl font-medium text-content-main mb-5 leading-snug max-w-2xl">
-          I build intelligent systems that can reason, remember, use tools and act.
+          I build AI systems that can actually do things — not just chat.
         </p>
 
-        <!-- Supporting Copy -->
-        <p class="text-base sm:text-lg text-content-secondary leading-relaxed max-w-xl mb-8">
-          AI Systems Engineer working across autonomous agents, agentic AI, LLM applications, backend systems, retrieval, planning, memory and tool orchestration.
-        </p>
+        <!-- Supporting Copy: Why this work interests Sarath -->
+        <div class="space-y-3 text-base sm:text-lg text-content-secondary leading-relaxed max-w-xl mb-8">
+          <p>
+            Most of my work starts with a simple question:
+          </p>
+          <p class="text-content-main font-medium italic">
+            What happens after the model gives an answer?
+          </p>
+          <p class="text-sm sm:text-base text-content-muted">
+            That keeps pulling me into agents, planning, memory, tools, backend systems, state, failures and everything in between.
+          </p>
+        </div>
 
         <!-- Action CTA Buttons -->
         <div class="flex flex-wrap items-center gap-4 mb-8">
-          <AppButton to="/projects" variant="primary" size="lg">
-            Explore my work
+          <AppButton to="#featured-projects" variant="primary" size="lg" @click="scrollToNext">
+            See what I'm building
           </AppButton>
 
           <AppButton to="/about" variant="secondary" size="lg">
-            About me
+            More about me
           </AppButton>
         </div>
 
@@ -68,44 +76,14 @@ const scrollToNext = () => {
       <div class="lg:col-span-5 flex items-center justify-center lg:justify-end mt-4 lg:mt-0">
         <div class="relative w-full max-w-[360px] sm:max-w-[420px] lg:max-w-[460px]">
           
-          <!-- Floating Chip 1: AI Systems (Top Right) -->
+          <!-- Visual Stage Container with clean integrated bottom fade -->
           <div
-            class="absolute -top-3 right-2 sm:-top-3 sm:right-4 lg:-top-3 lg:-right-3 z-20 animate-drift"
-          >
-            <div class="flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-xl bg-[#0F0F11]/85 backdrop-blur-md border border-white/10 shadow-lg text-[11px] sm:text-xs font-mono text-content-main">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent-primary"></span>
-              <span>AI Systems</span>
-            </div>
-          </div>
-
-          <!-- Floating Chip 2: Agentic AI (Mid Left) -->
-          <div
-            class="absolute top-1/2 -translate-y-1/2 -left-2 sm:-left-4 lg:-left-5 z-20 animate-drift-delayed"
-          >
-            <div class="flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-xl bg-[#0F0F11]/85 backdrop-blur-md border border-white/10 shadow-lg text-[11px] sm:text-xs font-mono text-content-main">
-              <span class="w-1.5 h-1.5 rounded-full bg-accent-secondary"></span>
-              <span>Agentic AI</span>
-            </div>
-          </div>
-
-          <!-- Floating Chip 3: Backend Engineering (Bottom Right) -->
-          <div
-            class="absolute bottom-10 right-2 sm:bottom-12 sm:right-3 lg:bottom-12 lg:-right-3 z-20 animate-drift"
-          >
-            <div class="flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-xl bg-[#0F0F11]/85 backdrop-blur-md border border-white/10 shadow-lg text-[11px] sm:text-xs font-mono text-content-main">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#60A5FA]"></span>
-              <span>Backend Engineering</span>
-            </div>
-          </div>
-
-          <!-- Visual Stage Container -->
-          <div
-            class="hero-portrait-stage relative w-full h-[440px] sm:h-[500px] lg:h-[540px] rounded-[28px] sm:rounded-[32px] bg-white/[0.025] border border-white/[0.07] overflow-hidden flex items-end justify-center"
+            class="hero-portrait-stage relative w-full h-[440px] sm:h-[500px] lg:h-[540px] rounded-[28px] sm:rounded-[32px] bg-white/[0.025] border border-white/[0.07] overflow-hidden flex items-end justify-center shadow-card"
           >
             <!-- Background Radial Glow -->
             <div
               class="absolute inset-0 pointer-events-none"
-              style="background: radial-gradient(circle at 50% 40%, rgba(124, 140, 255, 0.14), rgba(124, 140, 255, 0.03) 50%, transparent 72%);"
+              style="background: radial-gradient(circle at 50% 35%, rgba(124, 140, 255, 0.16), rgba(124, 140, 255, 0.03) 55%, transparent 75%);"
             ></div>
 
             <!-- Faint Subtle Grid Pattern -->
@@ -115,26 +93,30 @@ const scrollToNext = () => {
             ></div>
 
             <!-- Subtle Top Accent Edge Highlight -->
-            <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent-primary/20 to-transparent"></div>
+            <div class="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-accent-primary/30 to-transparent"></div>
 
-            <!-- Portrait Cutout Image -->
+            <!-- Portrait Cutout Image (Optimized WebP, full head and shoulders preserved, natural seamless stage integration) -->
             <img
               :src="sarathPortrait"
               alt="Sarath Sivakumar - AI Systems Engineer"
-              class="relative z-10 w-auto h-[88%] sm:h-[90%] max-h-[490px] object-contain object-bottom select-none pointer-events-none animate-fade-in"
+              width="1086"
+              height="1448"
+              class="relative z-10 w-auto h-[90%] sm:h-[92%] max-h-[500px] object-contain object-bottom select-none pointer-events-none animate-fade-in"
               loading="eager"
+              decoding="async"
+              fetchpriority="high"
             />
 
-            <!-- Subtle Bottom Edge Fade -->
+            <!-- Deliberate Subtle Bottom Edge Fade -->
             <div
-              class="absolute inset-x-0 bottom-0 h-14 bg-gradient-to-t from-[#08090B] via-[#08090B]/60 to-transparent z-10 pointer-events-none"
+              class="absolute inset-x-0 bottom-0 h-16 sm:h-20 bg-gradient-to-t from-[#08090B] via-[#08090B]/80 to-transparent z-10 pointer-events-none"
             ></div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Bottom Scroll Indicator -->
+    <!-- Bottom Scroll Indicator (Clean and uncluttered) -->
     <div class="pt-8 sm:pt-12 flex items-center justify-between text-xs font-mono text-content-muted">
       <button
         type="button"
@@ -144,10 +126,6 @@ const scrollToNext = () => {
         <span>Scroll to explore</span>
         <ArrowDown class="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
       </button>
-
-      <div class="hidden sm:block text-content-muted/80">
-        AUTONOMOUS AGENTS · BACKEND SYSTEMS
-      </div>
     </div>
   </section>
 </template>

@@ -51,6 +51,18 @@ const isExternal = computed(() => {
   return !!props.href
 })
 
+const computedTarget = computed(() => {
+  if (props.target !== undefined) return props.target || undefined
+  if (props.href?.startsWith('mailto:') || props.href?.startsWith('tel:')) return undefined
+  return '_blank'
+})
+
+const computedRel = computed(() => {
+  if (props.rel !== undefined) return props.rel || undefined
+  if (props.href?.startsWith('mailto:') || props.href?.startsWith('tel:')) return undefined
+  return 'noopener noreferrer'
+})
+
 const isRouterLink = computed(() => {
   return !!props.to && !isExternal.value
 })
@@ -73,8 +85,8 @@ const isRouterLink = computed(() => {
   <a
     v-else-if="isExternal"
     :href="href"
-    :target="target || '_blank'"
-    :rel="rel || 'noopener noreferrer'"
+    :target="computedTarget"
+    :rel="computedRel"
     :class="[
       'inline-flex items-center justify-center font-sans transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary/50 cursor-pointer select-none active:translate-y-px',
       variantClasses,

@@ -16,6 +16,12 @@ export interface ProjectCardArea {
   tag?: string
 }
 
+export interface ProjectLesson {
+  number: string
+  title: string
+  takeaway: string
+}
+
 export interface Project {
   id: string
   slug: string
@@ -37,6 +43,7 @@ export interface Project {
     quote: string
     details: string[]
   }
+  lessons?: ProjectLesson[]
   capabilities?: string[]
   architectureAreas?: string[]
   sections?: ProjectSectionDetail[]
@@ -52,21 +59,21 @@ export const projects: Project[] = [
     number: '01',
     name: 'Natasha',
     subtitle: 'Autonomous Executive Intelligence',
-    description: 'An autonomous AI system designed to reason over goals, plan actions, use tools, maintain context, interact with browsers and local capabilities, observe execution results, and continue toward goal completion.',
+    description: "An AI system I'm building to understand how an agent can carry a goal through the messy real world — including when plans fail and reality changes underneath it.",
     tags: [
-      'Agentic AI',
-      'Autonomous Agents',
       'Planning',
       'Memory',
-      'Tool Orchestration',
-      'Browser Automation',
-      'Python',
-      'LLMs'
+      'Tool Use',
+      'Browser',
+      'World State',
+      'Recovery',
+      'LLMs',
+      'Python'
     ],
     status: 'Active development',
     accentColor: '#7C8CFF',
-    heroIntro: 'A long-running AI systems project exploring how an intelligent software system can move beyond conversational responses and operate through goals, planning, tools, memory, world state and execution.',
-    overview: 'Natasha is engineered from first principles as an autonomous AI system designed to bridge the gap between static language model completions and real-world multi-step execution. Rather than acting as a simple prompt wrapper, it coordinates goal decomposition, capability routing, deterministic state tracking, and self-correcting feedback loops.',
+    heroIntro: "The hard part isn't getting an LLM to make a plan. It's getting the system to keep going when reality stops matching that plan.",
+    overview: 'Natasha is an autonomous AI systems project exploring how an intelligent software system can move beyond conversational prompts and operate through goal understanding, planning, capability and tool use, memory, browser interaction, execution, observations, world state, recovery and completion verification.',
     overviewPoints: [
       'Accepting high-level user goals and decomposing them into structured intent',
       'Maintaining coherent situational context and structured world state across turns',
@@ -138,6 +145,38 @@ export const projects: Project[] = [
         'Auditable State: Every state mutation produces a structured event log enabling full replay, debugging, and post-execution inspection.'
       ]
     },
+    lessons: [
+      {
+        number: '01',
+        title: 'THE PLANNER BECAME PART OF THE PROBLEM',
+        takeaway: 'Every new failure makes it tempting to add another recovery rule, validation step or prompt. Eventually the more useful question became: What actually requires model reasoning, and what should simply be reliable, deterministic runtime behavior?'
+      },
+      {
+        number: '02',
+        title: 'A PLAN IS NOT PROOF',
+        takeaway: 'A model saying an action worked doesn\'t make it true. The runtime still has to observe what actually happened, preserve the new state, and determine whether the goal genuinely moved forward.'
+      },
+      {
+        number: '03',
+        title: 'MORE CONTEXT ISN\'T ALWAYS MORE INTELLIGENCE',
+        takeaway: 'Long prompts, accumulated observations and repeated planning calls can make an agent slower, more expensive and harder to reason about. A recurring design problem is deciding what the model actually needs to see, and what the system should manage without asking it.'
+      },
+      {
+        number: '04',
+        title: 'OBSERVATIONS OVER MODEL ASSUMPTIONS',
+        takeaway: 'Execution success must be verified from concrete environmental observations, not assumed from model output or optimistic execution paths.'
+      },
+      {
+        number: '05',
+        title: 'CLEAR BOUNDARIES BETWEEN REASONING & RUNTIME',
+        takeaway: 'Model reasoning and deterministic runtime responsibilities need strict boundaries. Side effects, safety policies, and state transitions belong strictly in the runtime harness.'
+      },
+      {
+        number: '06',
+        title: 'REALITY INVALIDATES CLEAN PLANS',
+        takeaway: 'Browser state, asynchronous network events, and dynamic application behaviors can invalidate otherwise reasonable plans at any step, demanding resilient recovery over rigid execution.'
+      }
+    ],
     engineeringChallenges: [
       'Maintaining continuity and causal coherence across long-running, multi-step goals',
       'Preventing planner/runtime responsibility overlap by strictly bounding prompt autonomy',
@@ -166,22 +205,21 @@ export const projects: Project[] = [
     number: '02',
     name: 'Echo',
     subtitle: 'Conversational Voice & Messaging AI Agent',
-    description: 'A conversational AI system designed for voice and messaging interaction, retrieval-grounded responses, speech processing, tool dispatch and automated business workflows.',
+    description: "Voice AI feels magical until someone has to wait awkwardly for it to answer. Echo is my attempt at making that interaction feel more natural.",
     tags: [
       'Voice AI',
       'RAG',
-      'LLMs',
-      'Streaming',
       'STT',
       'TTS',
+      'Streaming',
       'Python',
       'Automation'
     ],
     status: 'In Active Development',
     githubUrl: 'https://github.com/Sarath-Sivakumar/agent-echo',
     accentColor: '#A78BFA',
-    heroIntro: 'A conversational AI system engineered for multi-channel interaction across WhatsApp and Telegram, grounded enterprise knowledge retrieval, speech processing, and automated business support workflows.',
-    overview: 'Echo is a conversational AI system designed to automate customer interactions across voice notes and text messaging while grounding responses in business-specific knowledge. It pairs Speech-to-Text (STT), LLM reasoning, and Text-to-Speech (TTS) synthesis with semantic search and backend tool dispatch to enable fluid, context-aware dialogues. End-to-end messaging and voice note pipelines are operational for Telegram and WhatsApp, with real-time telephone calling currently under active development.',
+    heroIntro: 'Voice AI looks deceptively simple until latency becomes part of the conversation. A correct answer that arrives after an awkward silence still feels broken.',
+    overview: 'Echo is a conversational AI system designed for multi-channel interaction across WhatsApp and Telegram, speech processing, domain-grounded retrieval, tool dispatch, and automated business workflows. End-to-end messaging and audio voice note pipelines are operational, with real-time telephone calling currently under active development.',
     capabilities: [
       'Telegram text messages and voice notes with end-to-end processing',
       'WhatsApp text messages and audio voice note support',
@@ -219,7 +257,7 @@ export const projects: Project[] = [
     number: '03',
     name: 'Debug Pilot',
     subtitle: 'AI-Powered Spring Boot Debugging Agent',
-    description: 'An AI-powered debugging agent that analyzes Spring Boot failures, executes structured plan-execute-reflect-diagnose loops, and generates contextual root-cause explanations and remediation guidance.',
+    description: "Debugging isn't hard because exceptions are invisible. It's hard because the useful clue is usually buried somewhere else. Debug Pilot uses retrieval and contextual reasoning to help surface the part actually worth investigating.",
     tags: [
       'Agentic AI',
       'Spring Boot',
@@ -232,8 +270,8 @@ export const projects: Project[] = [
     status: 'Completed POC',
     githubUrl: 'https://github.com/Sarath-Sivakumar/debug-pilot-agent',
     accentColor: '#60A5FA',
-    heroIntro: 'An AI-powered debugging agent designed to diagnose Spring Boot startup, dependency, and runtime failures using a Plan → Execute → Reflect → Diagnose loop with session memory and observability.',
-    overview: 'Debug Pilot addresses the friction of troubleshooting complex Java / Spring Boot application errors by parsing stack traces, analyzing dependency injection graphs, and querying an indexed corpus of known failure signatures. Orchestrated via FastAPI and a React dashboard, the agent coordinates planner, executor, reflector, and responder modules to present actionable fixes and diffs.',
+    heroIntro: "Most developers don't need another tool that tells them an exception exists. They need something that can understand the surrounding failure and point them toward what is actually worth investigating.",
+    overview: 'Debug Pilot addresses the friction of troubleshooting complex Java / Spring Boot application errors by parsing stack traces, analyzing dependency injection graphs, and querying an indexed corpus of known failure signatures using a structured Plan → Execute → Reflect → Diagnose loop with session memory and diagnostic observability.',
     architectureAreas: [
       'React Dashboard (User Interface & Interaction)',
       'FastAPI Gateway & Session Orchestrator',

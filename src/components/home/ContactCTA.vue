@@ -11,20 +11,20 @@ import SocialLinks from '@/components/common/SocialLinks.vue'
 
       <div class="max-w-2xl relative z-10">
         <div class="font-mono text-xs uppercase tracking-wider text-accent-primary mb-3 font-medium">
-          INITIATE CONTACT
+          INBOX OPEN
         </div>
 
         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-content-main mb-4 leading-tight">
-          Let's build something intelligent.
+          Come say hi.
         </h2>
 
         <p class="text-base sm:text-lg text-content-secondary leading-relaxed mb-8">
-          I'm interested in AI systems, autonomous agents, backend engineering and ambitious software products.
+          Building something weird? Fighting an agent that refuses to behave? Or just want to talk about AI systems, backend architecture, or something completely different? My inbox is open.
         </p>
 
         <div class="flex flex-wrap items-center gap-4 mb-8">
           <AppButton to="/contact" variant="primary" size="lg">
-            Get in touch
+            Say hello
           </AppButton>
         </div>
 

@@ -11,11 +11,11 @@ import ContactCTA from '@/components/home/ContactCTA.vue'
       <div class="font-mono text-xs uppercase tracking-wider text-accent-primary font-medium mb-3">
         SYSTEMS & ENGINEERING
       </div>
-      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-content-main mb-6">
-        Projects
+      <h1 class="text-3xl sm:text-5xl md:text-6xl font-bold tracking-tight text-content-main mb-6">
+        Things I'm Building
       </h1>
       <p class="text-xl sm:text-2xl text-content-secondary max-w-3xl leading-relaxed">
-        AI systems, developer tools and engineering products I have designed and built.
+        These are the projects taking most of my attention right now — and occasionally most of my sleep.
       </p>
     </header>
 

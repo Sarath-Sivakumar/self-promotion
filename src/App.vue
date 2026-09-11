@@ -1,11 +1,19 @@
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { RouterView } from 'vue-router'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import AppFooter from '@/components/layout/AppFooter.vue'
+import { useTheme } from '@/composables/useTheme'
+
+const { initTheme } = useTheme()
+
+onMounted(() => {
+  initTheme()
+})
 </script>
 
 <template>
-  <div class="min-h-screen flex flex-col bg-dark-bg text-content-main selection:bg-accent-primary/25 selection:text-white">
+  <div class="min-h-screen flex flex-col bg-[var(--page-bg)] text-[var(--text-primary)] selection:bg-accent-primary/20 selection:text-accent-primary w-full transition-colors duration-150">
     <!-- Sticky Header -->
     <AppHeader />
 

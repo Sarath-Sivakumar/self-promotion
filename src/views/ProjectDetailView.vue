@@ -5,6 +5,7 @@ import { projects } from '@/data/projects'
 import ProjectHero from '@/components/project/ProjectHero.vue'
 import ProjectSection from '@/components/project/ProjectSection.vue'
 import TechBadge from '@/components/project/TechBadge.vue'
+import GrowvaDevicePreview from '@/components/project/GrowvaDevicePreview.vue'
 import ContactCTA from '@/components/home/ContactCTA.vue'
 import {
   CheckCircle2,
@@ -56,6 +57,16 @@ const nextProject = computed(() => {
           </div>
         </div>
       </div>
+    </ProjectSection>
+
+    <!-- Specific Section for Growva: App Preview & Store Badges -->
+    <ProjectSection
+      v-if="project.slug === 'growva'"
+      title="Mobile Shopping Experience"
+      eyebrow="CLIENT PRODUCT PREVIEW"
+      description="A cross-platform mobile shopping experience engineered for farm-fresh produce and everyday essentials on iOS and Android."
+    >
+      <GrowvaDevicePreview :stores="project.stores" />
     </ProjectSection>
 
     <!-- Specific Section for Debug Pilot: Key Metrics -->

@@ -5,6 +5,8 @@ import { RouterLink } from 'vue-router'
 interface Props {
   to?: string
   href?: string
+  download?: string
+  ariaLabel?: string
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost'
   size?: 'sm' | 'md' | 'lg'
   target?: string
@@ -23,15 +25,15 @@ const props = withDefaults(defineProps<Props>(), {
 const variantClasses = computed(() => {
   switch (props.variant) {
     case 'primary':
-      return 'bg-content-main text-dark-bg hover:bg-white hover:shadow-glow font-medium border border-transparent'
+      return 'bg-[var(--primary-button-bg)] text-[var(--primary-button-text)] hover:opacity-90 font-semibold border border-transparent shadow-xs'
     case 'secondary':
-      return 'bg-dark-secondary text-content-main hover:bg-dark-hover border border-border-subtle hover:border-border-hover'
+      return 'bg-[var(--surface)] text-[var(--text-primary)] hover:bg-[var(--surface-subtle)] border border-[var(--border)] hover:border-[var(--border-hover)]'
     case 'outline':
-      return 'bg-transparent text-content-main hover:bg-dark-secondary border border-border-subtle hover:border-border-hover'
+      return 'bg-transparent text-[var(--text-primary)] hover:bg-[var(--surface-subtle)] border border-[var(--border)] hover:border-[var(--border-hover)]'
     case 'ghost':
-      return 'bg-transparent text-content-secondary hover:text-content-main hover:bg-dark-secondary border border-transparent'
+      return 'bg-transparent text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--surface-subtle)] border border-transparent'
     default:
-      return 'bg-content-main text-dark-bg hover:bg-white'
+      return 'bg-[var(--primary-button-bg)] text-[var(--primary-button-text)] hover:opacity-90 font-semibold border border-transparent'
   }
 })
 
@@ -85,8 +87,10 @@ const isRouterLink = computed(() => {
   <a
     v-else-if="isExternal"
     :href="href"
+    :download="download || undefined"
     :target="computedTarget"
     :rel="computedRel"
+    :aria-label="ariaLabel || undefined"
     :class="[
       'inline-flex items-center justify-center font-sans transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary/50 cursor-pointer select-none active:translate-y-px',
       variantClasses,

@@ -2,6 +2,7 @@
 import { onMounted, onUnmounted, watch } from 'vue'
 import { RouterLink, useRoute } from 'vue-router'
 import { X, ArrowRight } from 'lucide-vue-next'
+import ThemeToggle from '@/components/common/ThemeToggle.vue'
 
 interface NavItem {
   label: string
@@ -100,8 +101,7 @@ const isActive = (path: string) => {
     >
       <div
         v-if="isOpen"
-        class="fixed inset-0 z-[100] w-full min-h-[100dvh] overflow-y-auto backdrop-blur-sm flex flex-col justify-between p-6 sm:p-8"
-        style="background: rgba(8, 9, 11, 0.99);"
+        class="fixed inset-0 z-[100] w-full min-h-[100dvh] overflow-y-auto bg-[var(--page-bg)] text-content-main flex flex-col justify-between p-6 sm:p-8"
         role="dialog"
         aria-modal="true"
         aria-label="Mobile Navigation"
@@ -110,15 +110,15 @@ const isActive = (path: string) => {
         <div class="flex items-center justify-between pb-6 border-b border-border-subtle">
           <RouterLink
             to="/"
-            class="font-mono text-sm tracking-wider font-semibold text-content-main hover:text-accent-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary rounded"
+            class="font-sans text-xs sm:text-sm tracking-[0.14em] font-semibold text-content-main hover:text-accent-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary rounded uppercase"
             @click="emit('close')"
           >
-            SARATH.
+            SARATH SIVAKUMAR
           </RouterLink>
 
           <button
             type="button"
-            class="p-2.5 rounded-lg text-content-secondary hover:text-content-main bg-dark-card border border-border-subtle transition-colors focus:outline-none focus:ring-2 focus:ring-accent-primary cursor-pointer"
+            class="p-2.5 rounded-lg text-content-secondary hover:text-content-main bg-surface border border-border-subtle transition-colors focus:outline-none focus:ring-2 focus:ring-accent-primary cursor-pointer"
             aria-label="Close navigation menu"
             @click="emit('close')"
           >
@@ -156,8 +156,14 @@ const isActive = (path: string) => {
           </RouterLink>
         </nav>
 
+        <!-- Theme selection row inside mobile menu -->
+        <div class="py-4 border-t border-border-subtle flex items-center justify-between">
+          <span class="text-xs font-sans uppercase tracking-widest text-content-muted font-medium">Theme</span>
+          <ThemeToggle />
+        </div>
+
         <!-- Social row inside mobile menu: exactly GitHub, LinkedIn, Email -->
-        <div class="pt-6 border-t border-border-subtle flex items-center gap-6 sm:gap-8">
+        <div class="pt-4 border-t border-border-subtle flex items-center gap-6 sm:gap-8">
           <a
             href="https://github.com/Sarath-Sivakumar"
             target="_blank"

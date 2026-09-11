@@ -48,7 +48,7 @@ const getIcon = (iconName?: string) => {
       :target="isExternal(social) ? '_blank' : undefined"
       :rel="isExternal(social) ? 'noopener noreferrer' : undefined"
       :aria-label="social.label || social.name"
-      class="p-2 sm:p-2.5 rounded-lg text-content-secondary hover:text-content-main hover:bg-dark-secondary border border-transparent hover:border-border-subtle transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary"
+      class="p-2 sm:p-2.5 rounded-lg text-content-secondary hover:text-content-main hover:bg-[var(--surface-hover)] border border-transparent hover:border-border-subtle transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary"
     >
       <component :is="getIcon(social.icon)" class="w-4 h-4 sm:w-5 sm:h-5" />
     </a>
@@ -77,10 +77,10 @@ const getIcon = (iconName?: string) => {
       :href="social.url"
       :target="isExternal(social) ? '_blank' : undefined"
       :rel="isExternal(social) ? 'noopener noreferrer' : undefined"
-      class="flex items-center justify-between p-4 rounded-card bg-dark-card border border-border-subtle hover:border-border-hover hover:bg-dark-hover transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary"
+      class="flex items-center justify-between p-4 rounded-card bg-[var(--surface)] border border-border-subtle hover:border-border-hover hover:bg-[var(--surface-hover)] transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary"
     >
       <div class="flex items-center gap-3.5">
-        <div class="p-2 rounded-lg bg-dark-secondary text-accent-primary group-hover:text-white transition-colors">
+        <div class="p-2 rounded-lg bg-[var(--page-bg)] text-accent-primary group-hover:text-content-main transition-colors">
           <component :is="getIcon(social.icon)" class="w-5 h-5" />
         </div>
         <div>
@@ -101,7 +101,7 @@ const getIcon = (iconName?: string) => {
       :href="social.url"
       :target="isExternal(social) ? '_blank' : undefined"
       :rel="isExternal(social) ? 'noopener noreferrer' : undefined"
-      class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-dark-card border border-border-subtle hover:border-border-hover text-content-secondary hover:text-content-main transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary"
+      class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-sans bg-[var(--surface)] border border-border-subtle hover:border-border-hover text-content-secondary hover:text-content-main transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-primary"
     >
       <component :is="getIcon(social.icon)" class="w-3.5 h-3.5 text-accent-primary" />
       <span>{{ social.name }}</span>

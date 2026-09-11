@@ -3,7 +3,8 @@ import { computed } from 'vue'
 import { RouterLink } from 'vue-router'
 import type { Project } from '@/data/projects'
 import TechBadge from './TechBadge.vue'
-import { ArrowUpRight, Github, Activity, Mic, Wrench } from 'lucide-vue-next'
+import StoreBadges from './StoreBadges.vue'
+import { ArrowUpRight, Github, Activity, Mic, Wrench, Terminal, ShoppingBag } from 'lucide-vue-next'
 
 interface Props {
   project: Project
@@ -19,6 +20,8 @@ const props = withDefaults(defineProps<Props>(), {
 const isNatasha = computed(() => props.project.slug === 'natasha')
 const isEcho = computed(() => props.project.slug === 'echo')
 const isDebugPilot = computed(() => props.project.slug === 'debug-pilot')
+const isQuickrun = computed(() => props.project.slug === 'quickrun')
+const isGrowva = computed(() => props.project.slug === 'growva')
 const routePath = computed(() => `/projects/${props.project.slug}`)
 </script>
 
@@ -42,8 +45,8 @@ const routePath = computed(() => `/projects/${props.project.slug}`)
       <!-- Typographic header panel -->
       <div class="flex items-center justify-between pb-5 border-b border-border-subtle mb-6">
         <div class="flex items-center gap-3">
-          <span class="font-mono text-xs text-accent-primary font-semibold tracking-wider">
-            SYSTEM {{ project.number }}
+          <span class="font-mono text-xs text-accent-primary font-semibold tracking-wider uppercase">
+            {{ project.category || `SYSTEM ${project.number}` }}
           </span>
           <span class="w-1.5 h-1.5 rounded-full bg-border-subtle"></span>
           <span class="text-xs font-mono text-content-muted">
@@ -77,6 +80,12 @@ const routePath = computed(() => `/projects/${props.project.slug}`)
           </span>
           <span v-else-if="isNatasha" class="p-1 rounded bg-accent-primary/10 text-accent-primary">
             <Activity class="w-4 h-4" />
+          </span>
+          <span v-else-if="isQuickrun" class="p-1 rounded bg-amber-500/10 text-amber-400">
+            <Terminal class="w-4 h-4" />
+          </span>
+          <span v-else-if="isGrowva" class="p-1 rounded bg-emerald-500/10 text-emerald-400">
+            <ShoppingBag class="w-4 h-4" />
           </span>
         </div>
         <p class="text-sm font-medium text-accent-primary/90">
@@ -117,6 +126,34 @@ const routePath = computed(() => `/projects/${props.project.slug}`)
         </span>
       </div>
 
+      <!-- QuickRun Subtle Visual Motif (Decorative) -->
+      <div
+        v-else-if="isQuickrun"
+        class="mb-5 p-3 rounded-lg bg-dark-secondary/70 border border-border-subtle/70 flex items-center justify-between text-xs font-mono text-content-muted"
+        aria-hidden="true"
+      >
+        <span class="text-[11px] text-amber-400 font-mono font-semibold">
+          RUST + TAURI RUNNER
+        </span>
+        <span class="text-[11px] text-content-secondary font-mono tracking-wider">
+          DISCOVERY → LIFECYCLE → LOCAL LOGS
+        </span>
+      </div>
+
+      <!-- Growva Subtle Visual Motif (Decorative) -->
+      <div
+        v-else-if="isGrowva"
+        class="mb-5 p-3 rounded-lg bg-dark-secondary/70 border border-border-subtle/70 flex items-center justify-between text-xs font-mono text-content-muted"
+        aria-hidden="true"
+      >
+        <span class="text-[11px] text-emerald-400 font-mono font-semibold">
+          CLIENT WORK I SHIPPED
+        </span>
+        <span class="text-[11px] text-content-secondary font-mono tracking-wider">
+          FLUTTER · iOS & ANDROID · GROCERY COMMERCE
+        </span>
+      </div>
+
       <!-- Natasha Subtle Flagship Architecture Motif -->
       <div
         v-else-if="isNatasha && featured"
@@ -131,6 +168,11 @@ const routePath = computed(() => `/projects/${props.project.slug}`)
       <p class="text-sm sm:text-base text-content-secondary leading-relaxed mb-6">
         {{ project.description }}
       </p>
+
+      <!-- Store Badges / Platforms if present -->
+      <div v-if="project.stores && project.stores.length" class="mb-6">
+        <StoreBadges :stores="project.stores" :app-name="project.name" />
+      </div>
 
       <!-- Tags -->
       <div class="flex flex-wrap gap-2 mb-8">

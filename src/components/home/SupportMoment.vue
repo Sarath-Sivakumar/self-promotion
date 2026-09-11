@@ -4,7 +4,7 @@ import { BUY_ME_A_COFFEE_URL } from '@/data/socials'
 </script>
 
 <template>
-  <section class="py-16 md:py-24 border-b border-border-subtle" aria-label="Support the Work">
+  <section class="py-16 md:py-24 border-b border-border-subtle overflow-hidden" aria-label="Support the Work">
     <div class="p-8 sm:p-10 md:p-12 lg:p-14 rounded-card bg-dark-card border border-border-subtle relative overflow-hidden transition-all duration-300 hover:border-border-hover shadow-card">
       <!-- Ambient subtle background glow with touch of warm yellow and violet -->
       <div

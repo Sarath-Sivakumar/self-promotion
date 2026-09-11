@@ -3,21 +3,152 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root,
+  [data-theme="dark"] {
+    /* Required Theme Tokens - DARK (Warm, premium charcoal palette) */
+    --page-bg: #111215;
+    --surface: #17181D;
+    --surface-subtle: #1D1E24;
+    --surface-hover: #23252C;
+
+    --text-primary: #F5F3EF;
+    --text-secondary: #A8A49E;
+    --text-muted: #7A7670;
+
+    --border: rgba(255, 255, 255, 0.08);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(255, 255, 255, 0.16);
+    --border-accent: rgba(121, 133, 214, 0.28);
+
+    --accent: #7985D4;
+    --accent-strong: #8F9AE4;
+    --accent-soft: rgba(121, 133, 214, 0.12);
+
+    --primary-button-bg: #F5F3EF;
+    --primary-button-text: #111215;
+
+    /* Semantic bridges */
+    --bg-main: 17 18 21;
+    --bg-secondary: 23 24 29;
+    --bg-card: 23 24 29;
+    --bg-hover: 29 30 36;
+    --content-main: 245 243 239;
+    --content-secondary: 168 164 158;
+    --content-muted: 122 118 112;
+    --accent-primary: 121 133 212;
+    --accent-secondary: 143 154 228;
+    --accent-muted: rgba(121, 133, 212, 0.12);
+    --shadow-card: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 8px 30px -4px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 35px -5px rgba(121, 133, 214, 0.12);
+
+    /* Restrained theme-aware sticky glass header tokens */
+    --header-glass-bg: rgba(17, 18, 21, 0.80);
+    --header-glass-blur: blur(14px) saturate(125%);
+    --header-glass-border: rgba(255, 255, 255, 0.08);
+    --header-fallback-bg: #111215;
+
+    /* Organic Layered Contour Field Tokens - DARK (Soft, diffused, atmospheric) */
+    --contour-layer-1: rgba(110, 120, 185, 0.14);
+    --contour-layer-2: rgba(75, 105, 155, 0.11);
+    --contour-layer-3: rgba(125, 120, 150, 0.07);
+    --contour-accent: rgba(45, 115, 125, 0.09);
+    --contour-stroke: transparent;
+    --contour-shadow: transparent;
+
+    /* Required portrait background luminance - DARK */
+    --portrait-luminance: radial-gradient(
+      ellipse at 50% 45%,
+      rgba(110, 120, 195, 0.12) 0%,
+      rgba(75, 95, 160, 0.06) 38%,
+      rgba(50, 55, 90, 0.02) 60%,
+      transparent 75%
+    );
     color-scheme: dark;
+  }
+
+  [data-theme="light"] {
+    /* Required Theme Tokens - LIGHT (Warm ivory, soft elegant palette) */
+    --page-bg: #F8F6F2;
+    --surface: #FFFFFF;
+    --surface-subtle: #F1EFEA;
+    --surface-hover: #E9E6DF;
+
+    --text-primary: #1C1B19;
+    --text-secondary: #5F5C57;
+    --text-muted: #807B75;
+
+    --border: rgba(28, 24, 20, 0.10);
+    --border-subtle: rgba(28, 24, 20, 0.10);
+    --border-hover: rgba(28, 24, 20, 0.20);
+    --border-accent: rgba(75, 89, 208, 0.25);
+
+    --accent: #4B59D0;
+    --accent-strong: #3B49BD;
+    --accent-soft: rgba(75, 89, 208, 0.08);
+
+    --primary-button-bg: #1C1B19;
+    --primary-button-text: #FAF8F4;
+
+    /* Semantic bridges */
+    --bg-main: 248 246 242;
+    --bg-secondary: 255 255 255;
+    --bg-card: 255 255 255;
+    --bg-hover: 241 239 234;
+    --content-main: 28 27 25;
+    --content-secondary: 95 92 87;
+    --content-muted: 128 123 117;
+    --accent-primary: 75 89 208;
+    --accent-secondary: 59 73 189;
+    --accent-muted: rgba(75, 89, 208, 0.08);
+    --shadow-card: 0 4px 20px -2px rgba(28, 24, 20, 0.05), 0 1px 3px rgba(28, 24, 20, 0.04);
+    --shadow-card-hover: 0 8px 26px -4px rgba(28, 24, 20, 0.09), 0 2px 6px rgba(28, 24, 20, 0.05);
+    --shadow-glow: 0 0 25px -4px rgba(75, 89, 208, 0.10);
+
+    /* Restrained theme-aware sticky glass header tokens */
+    --header-glass-bg: rgba(248, 246, 242, 0.84);
+    --header-glass-blur: blur(14px) saturate(115%);
+    --header-glass-border: rgba(28, 24, 20, 0.10);
+    --header-fallback-bg: #F8F6F2;
+
+    /* Organic Layered Contour Field Tokens - LIGHT (Pale lavender, powder blue, soft cyan) */
+    --contour-layer-1: rgba(215, 210, 242, 0.38);
+    --contour-layer-2: rgba(205, 222, 246, 0.32);
+    --contour-layer-3: rgba(228, 224, 242, 0.22);
+    --contour-accent: rgba(212, 236, 242, 0.26);
+    --contour-stroke: transparent;
+    --contour-shadow: transparent;
+
+    /* Required portrait background luminance - LIGHT */
+    --portrait-luminance: radial-gradient(
+      ellipse at 50% 45%,
+      rgba(85, 100, 225, 0.10) 0%,
+      rgba(115, 128, 210, 0.05) 38%,
+      rgba(150, 155, 190, 0.015) 60%,
+      transparent 76%
+    );
+    color-scheme: light;
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: #08090B;
+    background-color: var(--page-bg);
+    overflow-x: clip;
+    max-width: 100%;
   }
 
   body {
     font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background-color: #08090B;
-    color: #F5F5F5;
+    background-color: var(--page-bg);
+    color: var(--text-primary);
     line-height: 1.7;
-    overflow-x: hidden;
+    overflow-x: clip;
+    max-width: 100%;
+  }
+
+  /* Ensure anchor targets are not hidden beneath the sticky header */
+  [id] {
+    scroll-margin-top: 5rem;
   }
 
   /* Custom scrollbar */
@@ -25,14 +156,14 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #08090B;
+    background: rgb(var(--bg-main));
   }
   ::-webkit-scrollbar-thumb {
-    background: #22252C;
+    background: rgb(var(--bg-hover));
     border-radius: 4px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #333842;
+    background: rgb(var(--content-muted));
   }
 }
 
@@ -42,7 +173,7 @@
   }
   
   .border-subtle {
-    border-color: rgba(255, 255, 255, 0.07);
+    border-color: var(--border-subtle);
   }
 }
 

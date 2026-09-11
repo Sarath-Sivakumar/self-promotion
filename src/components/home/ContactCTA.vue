@@ -4,7 +4,7 @@ import SocialLinks from '@/components/common/SocialLinks.vue'
 </script>
 
 <template>
-  <section class="py-20 md:py-28" aria-label="Call to Action">
+  <section class="py-20 md:py-28 overflow-hidden" aria-label="Call to Action">
     <div class="p-8 sm:p-12 md:p-16 rounded-card bg-dark-card border border-border-subtle relative overflow-hidden">
       <!-- Background subtle gradient accent -->
       <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-accent-primary/5 rounded-full blur-3xl pointer-events-none"></div>

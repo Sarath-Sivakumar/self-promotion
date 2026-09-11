@@ -1,63 +1,38 @@
 <script setup lang="ts">
 import HeroSection from '@/components/home/HeroSection.vue'
-import FeaturedProjects from '@/components/home/FeaturedProjects.vue'
-import ExpertiseSection from '@/components/home/ExpertiseSection.vue'
-import SupportMoment from '@/components/home/SupportMoment.vue'
-import ExperiencePreview from '@/components/home/ExperiencePreview.vue'
-import WritingPreview from '@/components/home/WritingPreview.vue'
-import LinkedInSection from '@/components/home/LinkedInSection.vue'
-import CurrentFocus from '@/components/home/CurrentFocus.vue'
-import ContactCTA from '@/components/home/ContactCTA.vue'
+import OriginChapter from '@/components/home/OriginChapter.vue'
+import ProgrammingChapter from '@/components/home/ProgrammingChapter.vue'
+import SelectedWork from '@/components/home/SelectedWork.vue'
+import FeaturedCaseStudy from '@/components/home/FeaturedCaseStudy.vue'
+import FieldNotes from '@/components/home/FieldNotes.vue'
+import ProfessionalExperience from '@/components/home/ProfessionalExperience.vue'
+import ContactSection from '@/components/home/ContactSection.vue'
 </script>
 
 <template>
-  <div class="space-y-4">
-    <!-- 1. Hero: Sarath introduction + portrait -->
+  <div class="homepage-flow space-y-16 sm:space-y-24 md:space-y-32 lg:space-y-36">
+    <!-- 01 HERO -->
     <HeroSection />
 
-    <!-- 2. Things I'm Building (Natasha, Echo, Debug Pilot) -->
-    <FeaturedProjects />
+    <!-- 02 WHERE IT STARTED -->
+    <OriginChapter />
 
-    <!-- Editorial Bridge: Projects -> Engineering Focus -->
-    <div class="pt-12 pb-4 md:pt-16 md:pb-6 max-w-2xl">
-      <p class="text-lg sm:text-xl text-content-secondary font-medium leading-relaxed text-editorial">
-        Building these systems keeps pulling me back to the same few engineering problems.
-      </p>
-    </div>
+    <!-- 03 PROGRAMMING BECAME THE MEDIUM -->
+    <ProgrammingChapter />
 
-    <!-- 3. What I Spend My Time On / Expertise -->
-    <ExpertiseSection />
+    <!-- 04 SELECTED WORK -->
+    <SelectedWork />
 
-    <!-- Editorial Bridge: Focus -> Support -->
-    <div class="pt-12 pb-4 md:pt-16 md:pb-6 max-w-2xl">
-      <p class="text-lg sm:text-xl text-content-secondary font-medium leading-relaxed text-editorial">
-        And occasionally, something I learn while doing this turns out to be useful to someone else.
-      </p>
-    </div>
+    <!-- 05 ONE FEATURED CASE STUDY -->
+    <FeaturedCaseStudy />
 
-    <!-- 4. Buy Me a Coffee / Fuel the Next Rabbit Hole -->
-    <SupportMoment />
+    <!-- 06 TWO FIELD NOTES -->
+    <FieldNotes />
 
-    <!-- 5. Where I Do This Professionally / Experience -->
-    <ExperiencePreview />
+    <!-- 07 PROFESSIONAL EXPERIENCE -->
+    <ProfessionalExperience />
 
-    <!-- Editorial Bridge: Experience -> Writing -->
-    <div class="pt-12 pb-4 md:pt-16 md:pb-6 max-w-2xl">
-      <p class="text-lg sm:text-xl text-content-secondary font-medium leading-relaxed text-editorial">
-        Most of those problems eventually turn into notes.
-      </p>
-    </div>
-
-    <!-- 6. Things I'm Figuring Out / Writing -->
-    <WritingPreview />
-
-    <!-- 7. Elsewhere on the Internet / LinkedIn -->
-    <LinkedInSection />
-
-    <!-- 8. Currently / Current Focus -->
-    <CurrentFocus />
-
-    <!-- 8. Come Say Hi / Contact CTA -->
-    <ContactCTA />
+    <!-- 08 CONTACT -->
+    <ContactSection />
   </div>
 </template>

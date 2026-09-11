@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { experiences } from '@/data/experience'
+import { siteConfig } from '@/config/site'
 import SectionHeading from '@/components/common/SectionHeading.vue'
 import AppButton from '@/components/common/AppButton.vue'
 </script>
@@ -13,7 +14,16 @@ import AppButton from '@/components/common/AppButton.vue'
         description="Working across AI systems and backend engineering — building LLM-powered agent and retrieval systems alongside Java/Spring Boot services, enterprise APIs and performance-critical backend systems."
       />
 
-      <div class="hidden md:block pb-14">
+      <div class="hidden md:flex items-center gap-3 pb-14">
+        <AppButton
+          :href="siteConfig.resume.url"
+          :download="siteConfig.resume.downloadName"
+          :aria-label="siteConfig.resume.ariaLabel"
+          variant="outline"
+          size="sm"
+        >
+          Download Resume ↓
+        </AppButton>
         <AppButton to="/about" variant="outline" size="sm">
           More about me →
         </AppButton>
@@ -51,7 +61,16 @@ import AppButton from '@/components/common/AppButton.vue'
       </div>
     </div>
 
-    <div class="mt-8 text-center md:hidden">
+    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 md:hidden">
+      <AppButton
+        :href="siteConfig.resume.url"
+        :download="siteConfig.resume.downloadName"
+        :aria-label="siteConfig.resume.ariaLabel"
+        variant="outline"
+        size="md"
+      >
+        Download Resume ↓
+      </AppButton>
       <AppButton to="/about" variant="outline" size="md">
         More about me →
       </AppButton>

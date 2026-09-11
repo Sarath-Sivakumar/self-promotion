@@ -4,29 +4,47 @@ export default {
     "./index.html",
     "./src/**/*.{vue,js,ts,jsx,tsx}",
   ],
+  darkMode: ['selector', '[data-theme="dark"]'],
   theme: {
     extend: {
       colors: {
+        'page-bg': 'var(--page-bg)',
+        surface: {
+          DEFAULT: 'var(--surface)',
+          subtle: 'var(--surface-subtle)',
+          hover: 'var(--surface-hover)',
+        },
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'text-muted': 'var(--text-muted)',
         dark: {
-          bg: '#08090B',
-          secondary: '#101216',
-          card: '#12141A',
-          hover: '#181A22',
+          bg: 'var(--page-bg)',
+          secondary: 'var(--surface)',
+          card: 'var(--surface)',
+          hover: 'var(--surface-subtle)',
         },
         content: {
-          main: '#F5F5F5',
-          secondary: '#A3A3A3',
-          muted: '#737373',
+          main: 'var(--text-primary)',
+          secondary: 'var(--text-secondary)',
+          muted: 'var(--text-muted)',
         },
         border: {
-          subtle: 'rgba(255, 255, 255, 0.07)',
-          hover: 'rgba(255, 255, 255, 0.15)',
-          accent: 'rgba(124, 140, 255, 0.3)',
+          DEFAULT: 'var(--border)',
+          subtle: 'var(--border)',
+          hover: 'var(--border-hover)',
+          accent: 'var(--border-accent)',
         },
         accent: {
-          primary: '#7C8CFF',
-          secondary: '#A78BFA',
-          muted: 'rgba(124, 140, 255, 0.12)',
+          DEFAULT: 'var(--accent)',
+          primary: 'var(--accent)',
+          strong: 'var(--accent-strong)',
+          soft: 'var(--accent-soft)',
+          secondary: 'var(--accent-strong)',
+          muted: 'var(--accent-soft)',
+        },
+        'primary-button': {
+          bg: 'var(--primary-button-bg)',
+          text: 'var(--primary-button-text)',
         },
       },
       fontFamily: {
@@ -41,9 +59,9 @@ export default {
         btn: '10px',
       },
       boxShadow: {
-        card: '0 4px 20px -2px rgba(0, 0, 0, 0.5)',
-        'card-hover': '0 8px 30px -4px rgba(0, 0, 0, 0.7)',
-        glow: '0 0 35px -5px rgba(124, 140, 255, 0.15)',
+        card: 'var(--shadow-card)',
+        'card-hover': 'var(--shadow-card-hover)',
+        glow: 'var(--shadow-glow)',
       },
       lineHeight: {
         relaxed: '1.7',

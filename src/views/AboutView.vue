@@ -2,7 +2,9 @@
 import { skillCategories, focusAreas } from '@/data/skills'
 import { experiences } from '@/data/experience'
 import TechBadge from '@/components/project/TechBadge.vue'
+import AppButton from '@/components/common/AppButton.vue'
 import ContactCTA from '@/components/home/ContactCTA.vue'
+import { siteConfig } from '@/config/site'
 
 const coreValues = [
   'Systems that survive failure.',
@@ -176,13 +178,27 @@ const coreValues = [
       <!-- Section: Experience Detail -->
       <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pt-12 border-t border-border-subtle" aria-label="Work Experience">
         <div class="lg:col-span-4">
-          <div class="sticky top-28">
-            <h2 class="text-2xl font-bold tracking-tight text-content-main mb-2">
-              Experience
-            </h2>
-            <p class="text-sm font-mono text-content-muted">
-              Professional engineering track
-            </p>
+          <div class="sticky top-28 space-y-4">
+            <div>
+              <h2 class="text-2xl font-bold tracking-tight text-content-main mb-2">
+                Experience
+              </h2>
+              <p class="text-sm font-mono text-content-muted">
+                Professional engineering track
+              </p>
+            </div>
+
+            <div>
+              <AppButton
+                :href="siteConfig.resume.url"
+                :download="siteConfig.resume.downloadName"
+                :aria-label="siteConfig.resume.ariaLabel"
+                variant="outline"
+                size="sm"
+              >
+                Download Resume ↓
+              </AppButton>
+            </div>
           </div>
         </div>
 

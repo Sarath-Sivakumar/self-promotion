@@ -22,6 +22,15 @@ export interface ProjectLesson {
   takeaway: string
 }
 
+export interface ProjectStoreLink {
+  platform: 'app-store' | 'google-play' | 'microsoft-store' | 'mac-app-store' | 'linux' | 'windows' | 'macos' | string
+  label: string
+  url?: string
+  badge?: string
+  statusText?: string
+  ariaLabel?: string
+}
+
 export interface Project {
   id: string
   slug: string
@@ -29,10 +38,13 @@ export interface Project {
   name: string
   subtitle: string
   description: string
+  category?: string
+  shortLine?: string
   tags: string[]
   status: string
   githubUrl?: string
   liveUrl?: string
+  stores?: ProjectStoreLink[]
   accentColor: string
   heroIntro: string
   overview: string
@@ -333,5 +345,115 @@ export const projects: Project[] = [
       'RAG',
       'Spring Boot'
     ]
+  },
+  {
+    id: 'quickrun',
+    slug: 'quickrun',
+    number: '04',
+    name: 'QuickRun',
+    subtitle: 'Local Multi-Service Development Runner',
+    category: 'DEVELOPER TOOLING',
+    shortLine: 'Less setup. More building.',
+    description: 'A local desktop utility for discovering, configuring, running, and observing the services that make up a development project.',
+    tags: [
+      'Rust',
+      'Tauri',
+      'React',
+      'TypeScript',
+      'Tailwind CSS',
+      'Process Management'
+    ],
+    status: 'v1.1 Released (Windows)',
+    githubUrl: 'https://github.com/Sarath-Sivakumar/QuickRun',
+    accentColor: '#F59E0B',
+    heroIntro: 'QuickRun keeps service controls, live state, and structured logs in one desktop application while leaving each service\'s normal development tools in charge.',
+    overview: 'QuickRun is a local Windows desktop utility for discovering, configuring, running, and observing the services that make up a development project. It eliminates terminal sprawl, detects framework commands and port conflicts, and streams structured logs locally without cloud telemetry.',
+    stores: [
+      {
+        platform: 'windows',
+        label: 'Windows',
+        statusText: 'Coming soon / Release in progress'
+      },
+      {
+        platform: 'macos',
+        label: 'macOS',
+        statusText: 'Coming soon'
+      },
+      {
+        platform: 'linux',
+        label: 'Linux',
+        statusText: 'Coming soon'
+      }
+    ],
+    capabilities: [
+      'Project-level grouping and multi-service run profiles',
+      'Automatic ecosystem detection for Vite, Next.js, FastAPI, Spring Boot, Go, Rust, and Docker',
+      'Preflight occupied port collision detection before spawning processes',
+      'Dependency readiness inspection and guided command launch',
+      'Attributed stdout and stderr streaming console with search and filter',
+      '100% local operation with zero cloud control plane or telemetry tracking'
+    ],
+    architectureAreas: [
+      'React & Tailwind UI Frontend',
+      'Tauri Command & Event Interop Layer',
+      'Rust Process Lifecycle & Spawn Manager',
+      'Conservative Project Type & Port Detector',
+      'Local Storage & Session State Engine'
+    ],
+    techStack: [
+      'Rust',
+      'Tauri',
+      'React',
+      'TypeScript',
+      'Tailwind CSS'
+    ]
+  },
+  {
+    id: 'growva',
+    slug: 'growva',
+    number: '05',
+    name: 'Growva',
+    subtitle: 'Cross-Platform Grocery & Produce Shopping App',
+    category: 'CLIENT WORK I SHIPPED',
+    shortLine: 'Fresh groceries, delivered across Kerala.',
+    description: 'A cross-platform grocery shopping experience for fresh produce and everyday essentials, available to customers across Kerala.',
+    tags: [
+      'Flutter',
+      'Dart',
+      'Mobile App',
+      'iOS',
+      'Android',
+      'Firebase',
+      'E-Commerce'
+    ],
+    status: 'Shipped to Stores',
+    accentColor: '#10B981',
+    heroIntro: 'A cross-platform mobile shopping application built to deliver farm-fresh groceries and everyday essentials to customers across Kerala.',
+    overview: 'Growva provides a direct, responsive mobile shopping experience for farm-fresh produce and daily household essentials across Kerala on iOS and Android.',
+    stores: [
+      {
+        platform: 'app-store',
+        label: 'Download on the App Store',
+        url: 'https://apps.apple.com/in/app/growva/id6766032950',
+        badge: '/brand/store-badges/app-store.svg',
+        ariaLabel: 'Download Growva on the App Store'
+      },
+      {
+        platform: 'google-play',
+        label: 'Get it on Google Play',
+        url: 'https://play.google.com/store/apps/details?id=app.growvagreen.store&pcampaignid=web_share',
+        badge: '/brand/store-badges/google-play.svg',
+        ariaLabel: 'Get Growva on Google Play'
+      }
+    ],
+    techStack: [
+      'Flutter',
+      'Dart',
+      'Firebase',
+      'iOS',
+      'Android',
+      'REST APIs'
+    ]
   }
 ]
+

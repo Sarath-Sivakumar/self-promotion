@@ -2,6 +2,7 @@
 import { RouterLink } from 'vue-router'
 import type { Project } from '@/data/projects'
 import TechBadge from './TechBadge.vue'
+import StoreBadges from './StoreBadges.vue'
 import { ArrowLeft, Github, ArrowUpRight } from 'lucide-vue-next'
 
 defineProps<{
@@ -24,8 +25,8 @@ defineProps<{
 
     <!-- Technical Eyebrow & Status -->
     <div class="flex flex-wrap items-center gap-3 font-mono text-xs mb-4">
-      <span class="text-accent-primary font-semibold tracking-wider">
-        SYSTEM {{ project.number }}
+      <span class="text-accent-primary font-semibold tracking-wider uppercase">
+        {{ project.category || `SYSTEM ${project.number}` }}
       </span>
       <span class="w-1 h-1 rounded-full bg-border-subtle"></span>
       <span class="px-2.5 py-0.5 rounded-full bg-dark-secondary border border-border-subtle text-content-muted">
@@ -46,7 +47,12 @@ defineProps<{
       {{ project.heroIntro }}
     </p>
 
-    <!-- Prominent Repository CTA (Echo & Debug Pilot) -->
+    <!-- Store Badges & Platforms (Growva, QuickRun) -->
+    <div v-if="project.stores && project.stores.length" class="mb-8">
+      <StoreBadges :stores="project.stores" :app-name="project.name" />
+    </div>
+
+    <!-- Prominent Repository CTA (Echo & Debug Pilot, QuickRun) -->
     <div v-if="project.githubUrl" class="mb-8">
       <a
         :href="project.githubUrl"

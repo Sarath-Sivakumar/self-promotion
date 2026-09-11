@@ -20,7 +20,7 @@ const secondaryProjects = computed(() => projects.filter(p => p.slug !== 'natash
 
       <div class="hidden md:block pb-14">
         <AppButton to="/projects" variant="outline" size="sm">
-          All Projects (3) →
+          All Projects ({{ projects.length }}) →
         </AppButton>
       </div>
     </div>
